@@ -88,7 +88,8 @@ int main()
 
 
     //스위치 생성
-    auto button = Object::create("Images/스위치.png", scene2, 870, 460);
+    auto button = Object::create("Images/버튼.png", scene2, 810, 450);
+    button->setScale(0.1f);
     auto light = true;
     button->setOnMouseCallback([&](ObjectPtr object, int x, int y, MouseAction action)->bool {//클릭시 문이 닫혀있으면 메세지를 출력하고,열려있으면 게임을 종료한다.
         if (light) {
