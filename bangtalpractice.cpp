@@ -7,6 +7,17 @@ int main()
     auto scene1 = Scene::create("방1", "Images/배경-1.png");
     auto scene2 = Scene::create("방2", "Images/배경-2.png");
 
+    //제한시간 생성
+    auto timer = Timer::create(20);
+    showTimer(timer);
+    timer->start();
+
+    timer->setOnTimerCallback([&](TimerPtr timer)->bool {     
+        showMessage("탈출 실패ㅠㅠ");
+        endGame();
+        return true;
+        });
+
     //가짜문 생성
     auto door2 = Object::create("Images/문-오른쪽-닫힘.png", scene1, 1100, 220);
 
