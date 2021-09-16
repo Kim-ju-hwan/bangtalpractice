@@ -14,7 +14,13 @@ int main()
 
     timer->setOnTimerCallback([&](TimerPtr timer)->bool {     
         showMessage("탈출 실패ㅠㅠ");
-        endGame();
+        auto timer2 = Timer::create(1);
+        timer2->start();
+
+        timer2->setOnTimerCallback([&](TimerPtr timer)->bool {
+            endGame();
+            return true;
+            });
         return true;
         });
 
